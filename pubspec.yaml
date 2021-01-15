@@ -31,7 +31,7 @@ dependencies:
   passwordfield: ^0.0.82
   carousel_slider: ^2.3.1
   carousel_pro: ^1.0.0
-
+  flutter_datetime_picker: ^1.4.0
 
 dev_dependencies:
   flutter_test:
