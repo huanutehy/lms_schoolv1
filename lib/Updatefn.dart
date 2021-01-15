@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms_schoolv1/UpdatePass.dart';
 
 import 'Signin.dart';
 class Updatefn extends StatelessWidget {
@@ -28,6 +29,19 @@ class _updatefnState extends State<updatefn> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UpdatePass()),
+                  )
+                // onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          ),
           Container(
             alignment: Alignment.center,
             width: 180,

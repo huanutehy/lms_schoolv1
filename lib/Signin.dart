@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms_schoolv1/SigninPage.dart';
 import 'DiaglogPage.dart';
 import 'HomePage.dart';
 import 'ResetPass.dart';
@@ -33,6 +34,26 @@ class _signinState extends State<signin> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SigninPage()),
+                  )
+                // onPressed: () => Navigator.of(context).pop(),
+              ),
+              Text(
+                "Đăng nhập",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
           Container(
             width: 280,
             height: 380,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'ResetPass.dart';
 import 'UpdatePass.dart';
 
 class KTPass extends StatelessWidget {
@@ -30,6 +31,19 @@ class _ktrapassState extends State<ktrapass> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ResetPass()),
+                  )
+                // onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          ),
           Container(
             alignment: Alignment.center,
             width: 180,

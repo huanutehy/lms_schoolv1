@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms_schoolv1/KTPass.dart';
 
 import 'Updatefn.dart';
 class UpdatePass extends StatelessWidget {
@@ -28,8 +29,19 @@ class _updatePassState extends State<updatePass> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SizedBox(height: 50,),
-          Text(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => KTPass()),
+                  )
+                // onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          ),          Text(
             'Cập nhật mật khẩu',
             style: TextStyle(
 

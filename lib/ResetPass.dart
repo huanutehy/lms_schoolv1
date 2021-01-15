@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lms_schoolv1/Signin.dart';
 
 import 'KTPass.dart';
 
@@ -31,8 +32,18 @@ class _resetPassState extends State<resetPass> {
       body:
       Column(
         children: [
-          SizedBox(
-            height: 80,
+                    Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Signin()),
+                  )
+                // onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
           ),
           Container(
             margin: EdgeInsets.only(left: 20),
