@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'DiaglogPage.dart';
+import 'HomePage.dart';
 import 'ResetPass.dart';
 
 class Signin extends StatelessWidget {
@@ -140,7 +141,8 @@ class _signinState extends State<signin> {
             children: [
               InkWell(
                 ///Chuyen trang khi click vào sự kiện
-                onTap: openDialog,
+                // onTap: openDialog,
+                onTap: _showMyDialog,
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 114, vertical: 25),
                   margin: EdgeInsets.only(left: 20),
@@ -190,46 +192,55 @@ class _signinState extends State<signin> {
     Navigator.pushNamed(context, '/Reset');
   }
 
-  void showMaterialDialog() {
-    showDialog(
-        context: context,
-        builder: (_) => new AlertDialog(
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
+          title: Row(
+            children: [
+              Text(
+                "Chọn trường học",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              IconButton(
+                  icon: Icon(Icons.close, color: Colors.black),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  })
+            ],
+          ),
           content: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 0.4,
             width: MediaQuery.of(context).size.width,
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: [
-                    Text(
-                      "Chọn trường học",
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w700),
-                    ),
-                    Expanded(
-                      child: Container(),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.close, color: Colors.black),
-                      onPressed: () { Navigator.of(context).pop();
-                      print('dàasgasgasga');
-                      },
-                    ),
-                  ],
-                ),
-                timeSlotWidget(
-                    "THCS Trần Thanh Quang", "taphuanttq.vnedu.vn"),
-                timeSlotWidget(
-                    "THCS Trần Thanh Quang", "taphuanttq.vnedu.vn"),
-                timeSlotWidget(
-                    "THCS Trần Thanh Quang", "taphuanttq.vnedu.vn"),
-              ],
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HomePage();
+                }));
+              },
+              child: Column(
+                children: [
+                  timeSlotWidget(
+                      "THCS Trần Thanh Quang", "taphuanttq.vnedu.vn"),
+                  timeSlotWidget(
+                      "THCS Trần Thanh Quang", "taphuanttq.vnedu.vn"),
+                  timeSlotWidget(
+                      "THCS Trần Thanh Quang", "taphuanttq.vnedu.vn"),
+                ],
+              ),
             ),
           ),
-        ));
+        );
+      },
+    );
   }
 
   Column timeSlotWidget(String truong, String web) {
@@ -279,7 +290,6 @@ class _signinState extends State<signin> {
               ),
             ),
           ),
-          onTap: openHome,
         )
       ],
     );
